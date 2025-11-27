@@ -23,9 +23,41 @@ This repository contains the data and scripts required to process behavioural, E
 
 ## 3. Demo: Generate All Figures
 To generate all figures and process the data as in the manuscript:
-  1. Start MATLAB and navigate to the main project folder.
-  2. Add the main project folder and its subfolders to the MATLAB path.
-  3. Run the following command in the MATLAB Command Window:
+
+- Start MATLAB and navigate to the main project folder, which contains four subfolders:
+   - `IlluminationBrightness`
+   - `PatchBrightness`
+   - `SSVEP`
+   - `WeightsTogether`
+
+- Add one of the subfolder to the MATLAB path.
+
+- Run the following scripts in the MATLAB Command Window:
+
+   - IlluminationBrightness
+     ```
+     Code/RunIlluminationFig.m
+     ```
+
+   - PatchBrightness
+     - FixedChroma experiment:
+       ```
+       Code/Run_nonChromaVariationExperiment.m
+       ```
+     - ChromaVariation experiment:
+       ```
+       PatchBrightness/Code/Run_ChromaVariationExperiment.m
+       ```
+
+   - **SSVEP**
+     ```matlab
+     SSVEP/Code/SSVEP_Figure.m
+     ```
+
+   - **WeightsTogether**
+     ```matlab
+     WeightsTogether/PlotAllWeights.m
+     ```
 
 main
 All figures will be saved to the figs/ directory, and cleaned data files will be saved in the data/ directory.
