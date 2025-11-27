@@ -23,9 +23,9 @@ This repository contains the data and scripts required to process behavioural, E
 
 ## 3. Demo: Generate All Figures
 To generate all figures and process the data as in the manuscript:
- 1. Start MATLAB and navigate to the main project folder.
- 2. Add the main project folder and its subfolders to the MATLAB path.
- 3. Run the following command in the MATLAB Command Window:
+  1. Start MATLAB and navigate to the main project folder.
+  2. Add the main project folder and its subfolders to the MATLAB path.
+  3. Run the following command in the MATLAB Command Window:
 
 main
 All figures will be saved to the figs/ directory, and cleaned data files will be saved in the data/ directory.
