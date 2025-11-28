@@ -24,13 +24,13 @@ This repository contains the data and scripts required to process behavioural, E
 ## 3. Demo: Generate All Figures
 To generate all figures and process the data as in the manuscript:
 
-- Start MATLAB and navigate to the main project folder, which contains four subfolders:
+- Start MATLAB and navigate to the main project directory, which contains the following four subfolders:
    - `IlluminationBrightness`
    - `PatchBrightness`
    - `SSVEP`
    - `WeightsTogether`
 
-- Add one of the subfolder to the MATLAB path.
+- Add one of these subfolders to the MATLAB path before running the code.
 
 - Run the following scripts in the MATLAB Command Window:
 
@@ -58,18 +58,16 @@ To generate all figures and process the data as in the manuscript:
      ```
      PlotAllWeights.m
      ```
-All figures will be show and output data will be saved to the directory.
+All figures will be displayed, and the output data will be saved to the designated directory.
 
 **Expected Output:**
-
-PDF and PNG files for all main and supplementary figures
-Cleaned MATLAB data files (e.g., onlineData.mat)
-Typical install & run times:
+All main and supplementary figures
+MATLAB data files containing key results
 
 **Typical install & run times:**
-Setup: less than 1 minute (copy/unzip files and MATLAB path setup)
-Data download: repository (with datasets) is > 6 GB (download time depends on your internet speed)
-Expected run time: ~5–10 minutes on a standard computer
+Setup time: Less than 1 minute (copy/unzip the files and configure the MATLAB path)
+Data download: The repository with datasets is at least 100 MB; actual download time will vary with internet speed
+Estimated run time: 2–3 hours on a typical machine, largely driven by the weight-fitting stage
 
 
 
