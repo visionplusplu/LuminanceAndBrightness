@@ -49,25 +49,24 @@ To generate all figures and process the data as in the manuscript:
        PatchBrightness/Code/Run_ChromaVariationExperiment.m
        ```
 
-   - **SSVEP**
-     ```matlab
-     SSVEP/Code/SSVEP_Figure.m
+   - SSVEP
+     ```
+     Code/SSVEP_Figure.m
      ```
 
-   - **WeightsTogether**
-     ```matlab
-     WeightsTogether/PlotAllWeights.m
+   - WeightsTogether
      ```
+     PlotAllWeights.m
+     ```
+All figures will be show and output data will be saved to the directory.
 
-main
-All figures will be saved to the figs/ directory, and cleaned data files will be saved in the data/ directory.
-
-Expected Output:
+**Expected Output:**
 
 PDF and PNG files for all main and supplementary figures
 Cleaned MATLAB data files (e.g., onlineData.mat)
 Typical install & run times:
 
+**Typical install & run times:**
 Setup: less than 1 minute (copy/unzip files and MATLAB path setup)
 Data download: repository (with datasets) is > 6 GB (download time depends on your internet speed)
 Expected run time: ~5–10 minutes on a standard computer
