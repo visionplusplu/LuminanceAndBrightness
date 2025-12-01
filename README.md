@@ -63,7 +63,7 @@ All figures will be displayed, and the output data will be saved to the designat
 
 **Expected Output:**  
 All main and supplementary figures
-MATLAB data files containing key results
+MATLAB data files containing key results.
 
 
 
