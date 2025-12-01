@@ -65,9 +65,19 @@ All main and supplementary figures
 MATLAB data files containing key results
 
 **Typical install & run times:**
-Setup time: Less than 1 minute (copy/unzip the files and configure the MATLAB path)
-Data download: The repository with datasets is at least 100 MB; actual download time will vary with internet speed
-Estimated run time: 2–3 hours on a typical machine, largely driven by the weight-fitting stage
+Setup time: Under 1 minute (copy/unzip files and configure the MATLAB path).
+Data download: The dataset repository is at least 100 MB. Actual download time depends on internet speed.
+Estimated run time: Approximately 2–3 hours on a typical machine. Most of this time is spent on the weight-fitting stage. 
+Once fitting is completed, the fitted weights are saved, and subsequent runs (e.g., when regenerating figures) will no longer repeat this step. 
+
+## 4. Instructions for Use
+Prepare the data first by running process_onlinedata.m.
+You can run any script individually after data preparation.
+Reproducing results in the manuscript:
+
+Running main.m will reproduce all results and figures as reported in the paper.
+The scripts are modular; you can adapt or extend the analyses as needed.
+
 
 
 
