@@ -1,5 +1,5 @@
 # Luminance And Brightness
-This repository contains the data and scripts required to process behavioural, EEG & DNN data, and to generate main and supplementary figures for the manuscript: An evaluation of the candela as the S.I. unit of luminous intensity.
+This repository contains the scripts required to process behavioural, EEG & DNN data, and to generate main and supplementary figures for the manuscript: An evaluation of the candela as the S.I. unit of luminous intensity.
 
 ## 1. System Requirements
 - **Operating System:** Windows, macOS, or Ubuntu (tested on Windows 10 or later, macOS Tahoe 26.1)
@@ -21,7 +21,7 @@ This repository contains the data and scripts required to process behavioural, E
 
 
 
-## 3. Demo: Generate All Figures
+## 3. Generate All Figures
 To generate all figures and process the data as in the manuscript:
 
 - Start MATLAB and navigate to the main project directory, which contains the following four subfolders:
@@ -70,13 +70,13 @@ Data download: The dataset repository is at least 100 MB. Actual download time d
 Estimated run time: Approximately 2–3 hours on a typical machine. Most of this time is spent on the weight-fitting stage. 
 Once fitting is completed, the fitted weights are saved, and subsequent runs (e.g., when regenerating figures) will no longer repeat this step. 
 
-## 4. Instructions for Use
-Prepare the data first by running process_onlinedata.m.
-You can run any script individually after data preparation.
-Reproducing results in the manuscript:
+## 4. License
+This code is distributed under the MIT License.
 
-Running main.m will reproduce all results and figures as reported in the paper.
-The scripts are modular; you can adapt or extend the analyses as needed.
+## 5. Open Source Repository
+GitHub: //github.com/visionplusplu/LuminanceAndBrightness
+DOI: Data will be uploaded to OSF upon publication.
+
 
 
 
