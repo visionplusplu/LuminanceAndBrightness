@@ -58,13 +58,16 @@ To generate all figures and process the data as in the manuscript:
      ```
      PlotAllWeights.m
      ```
-All figures will be displayed, and the output data will be saved to the designated directory.
+All figures will be displayed, and the output data will be saved to the designated directory.  
 
-**Expected Output:**
+
+**Expected Output:**  
 All main and supplementary figures
 MATLAB data files containing key results
 
-**Typical install & run times:**
+
+
+**Typical install & run times:**  
 - Setup time: Under 1 minute (copy/unzip files and configure the MATLAB path).
 - Data download: The dataset repository is at least 100 MB. Actual download time depends on internet speed.
 - Estimated run time: Approximately 2–3 hours on a typical machine. Most of this time is spent on the weight-fitting stage.
