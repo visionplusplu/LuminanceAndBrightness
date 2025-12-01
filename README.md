@@ -74,7 +74,7 @@ Once fitting is completed, the fitted weights are saved, and subsequent runs (e.
 This code is distributed under the MIT License.
 
 ## 5. Open Source Repository
-GitHub: //github.com/visionplusplu/LuminanceAndBrightness
+- Scripts: https://github.com/visionplusplu/LuminanceAndBrightness
 DOI: Data will be uploaded to OSF upon publication.
 
 
