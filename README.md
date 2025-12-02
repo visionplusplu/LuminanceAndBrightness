@@ -23,7 +23,8 @@ This repository contains the scripts required to process behavioural, EEG & DNN 
 
 ## 3. Demo: Generate All Figures
 To reproduce all figures and process the data as presented in the manuscript, you can use one of the following options:
- -1.Running all experiments figures one time
+
+**1.Run all experiment figures at once** 
 - Start MATLAB and navigate to the main project directory
 - Run the following command in the MATLAB Command Window:
   ```
@@ -31,7 +32,8 @@ To reproduce all figures and process the data as presented in the manuscript, yo
   ```
 All figures will be displayed, and the output data will be saved to the designated directory.  
 
-2.Running each experiment figures separately
+
+**2. Run figures for each experiment separately** 
 - Start MATLAB and navigate to the main project directory, which contains the following four subfolders:
    - `IlluminationBrightness`
    - `PatchBrightness`
