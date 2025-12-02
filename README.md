@@ -30,7 +30,8 @@ To reproduce all figures and process the data as presented in the manuscript, yo
   ```
   main
   ```
-All figures will be displayed, and the output data will be saved to the designated directory.  
+- All figures will be displayed, and the output data will be saved to the designated directory.
+
 
 
 **2. Run figures for each experiment separately** 
@@ -68,7 +69,7 @@ All figures will be displayed, and the output data will be saved to the designat
      ```
      PlotAllWeights.m
      ```
-All figures of this experiment will be displayed, and the output data will be saved to the designated directory.  
+- All figures of this experiment will be displayed, and the output data will be saved to the designated directory.  
 
 
 **Expected Output:**  
@@ -84,13 +85,6 @@ MATLAB data files containing key results.
 - After fitting: Once fitting is completed, the fitted weights are saved, and subsequent runs (e.g., when regenerating figures) will no longer repeat this step.
 
 ## 4. Instruction of Use
-
-To run individual experiment scripts or customize analyses, you could go to subfolder directory
-running the scripts for each individual experiment (details in Sectrion 3)
-
-Runing main.m will reproduce all results and figures as reported in the paper.
-The scripts are modular, you can adapt or extend the analyses as needed.
-
 - To run individual experiment scripts or customize the analyses:
   - Navigate to the corresponding subfolder directory
   - Execute the scripts for each experiment (see Section 3 for details).
