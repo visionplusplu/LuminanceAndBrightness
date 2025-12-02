@@ -100,6 +100,12 @@ This code is distributed under the MIT License.
 - Data: https://osf.io/65bwf/ （Data will be uploaded to OSF upon publication)
 
 
+## 7. Software Description and Documentation
+- **Key operations:** The software processes behavioral and model prediction data, applies exclusion criteria, computes summary statistics, and generates all figures in the manuscript.
+- **Fundamental tasks:** Raw data processing, model evaluation, analysis, and figure generation for the manuscript.
+- **Algorithms and approach:** Standard psychophysical data processing, correlation analysis, and comparison of model predictions with human perception.
+- **Dependencies:** Only standard MATLAB toolboxes required. Other dependencies are included in the function directory.
+
 
 
 
