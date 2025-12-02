@@ -16,8 +16,10 @@ This repository contains the scripts required to process behavioural, EEG & DNN 
   ```bash
   git clone https://github.com/visionplusplu/LuminanceAndBrightness.git
   ```
+
+- Unzip the downloaded package: ```MainProject```
   
-- Open MATLAB and set the repository root directory as your working directory.
+- Open MATLAB and set the ```MainProject``` directory as your working directory.
 
 
 
