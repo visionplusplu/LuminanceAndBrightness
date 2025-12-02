@@ -21,9 +21,17 @@ This repository contains the scripts required to process behavioural, EEG & DNN 
 
 
 
-## 3. Generate All Figures
-To generate all figures and process the data as in the manuscript:
+## 3. Demo: Generate All Figures
+To reproduce all figures and process the data as presented in the manuscript, you can use one of the following options:
+ -1.Running all experiments figures one time
+- Start MATLAB and navigate to the main project directory
+- Run the following command in the MATLAB Command Window:
+  ```
+  main
+  ```
+All figures will be displayed, and the output data will be saved to the designated directory.  
 
+2.Running each experiment figures separately
 - Start MATLAB and navigate to the main project directory, which contains the following four subfolders:
    - `IlluminationBrightness`
    - `PatchBrightness`
@@ -58,7 +66,7 @@ To generate all figures and process the data as in the manuscript:
      ```
      PlotAllWeights.m
      ```
-All figures will be displayed, and the output data will be saved to the designated directory.  
+All figures of this experiment will be displayed, and the output data will be saved to the designated directory.  
 
 
 **Expected Output:**  
@@ -73,10 +81,25 @@ MATLAB data files containing key results.
 - Estimated run time: Approximately 1 hour on a typical machine using the demo dataset, with most of the time spent on the weight-fitting stage.
 - After fitting: Once fitting is completed, the fitted weights are saved, and subsequent runs (e.g., when regenerating figures) will no longer repeat this step.
 
-## 4. License
+## 4. Instruction of Use
+
+To run individual experiment scripts or customize analyses, you could go to subfolder directory
+running the scripts for each individual experiment (details in Sectrion 3)
+
+Runing main.m will reproduce all results and figures as reported in the paper.
+The scripts are modular, you can adapt or extend the analyses as needed.
+
+- To run individual experiment scripts or customize the analyses:
+  - Navigate to the corresponding subfolder directory
+  - Execute the scripts for each experiment (see Section 3 for details).
+   
+- Running ```main.m``` will reproduce all results and figures reported in the paper.
+- The scripts are modular, allowing you to adapt or extend the analyses as needed.
+
+## 5. License
 This code is distributed under the MIT License.
 
-## 5. Open Source Repository
+## 6. Open Source Repository
 - Scripts: https://github.com/visionplusplu/LuminanceAndBrightness
 - Data: https://osf.io/65bwf/ （Data will be uploaded to OSF upon publication)
 
