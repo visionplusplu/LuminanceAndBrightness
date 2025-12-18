@@ -25,7 +25,6 @@ This repository contains the scripts required to process behavioural, EEG & DNN 
 To reproduce all figures and process the data as presented in the manuscript, you can use one of the following options:
 
 **1. Run all experiment figures at once** 
-- Start MATLAB and navigate to the main project directory
 - Run the following command in the MATLAB Command Window:
   ```
   main
