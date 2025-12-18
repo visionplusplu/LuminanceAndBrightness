@@ -16,17 +16,15 @@ This repository contains the scripts required to process behavioural, EEG & DNN 
   ```bash
   git clone https://github.com/visionplusplu/LuminanceAndBrightness.git
   ```
-
-- Unzip the downloaded package: ```MainProject```
   
-- Open MATLAB and set the ```MainProject``` directory as your working directory.
+- Open MATLAB and set the ```LuminanceAndBrightness``` directory as your working directory.
 
 
 
 ## 3. Demo: Generate All Figures
 To reproduce all figures and process the data as presented in the manuscript, you can use one of the following options:
 
-**1.Run all experiment figures at once** 
+**1. Run all experiment figures at once** 
 - Start MATLAB and navigate to the main project directory
 - Run the following command in the MATLAB Command Window:
   ```
