@@ -1,5 +1,5 @@
 # Luminance And Brightness
-This repository contains the scripts required to process behavioural, EEG & DNN data, and to generate main and supplementary figures for the manuscript: An evaluation of the candela as the S.I. unit of luminous intensity.
+This repository contains the scripts required to process behavioural, EEG & DNN data, and to generate main and supplementary figures for the manuscript: Psychophysical and Neural Evidence for Revising Luminous Intensity Standards.
 
 ## 1. System Requirements
 - **Operating System:** Windows, macOS, or Ubuntu (tested on Windows 10 or later, macOS Tahoe 26.1)
