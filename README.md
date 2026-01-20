@@ -23,7 +23,8 @@ A small batch of sample data is also included for testing purposes. As a result,
 
 
 ## 3. Demo: Generate All Figures
-To reproduce all figures and process the data as presented in the manuscript, you can use one of the following options:
+To reproduce the sample figures and run the full analysis workflow, you can use one of the following options.  
+Please note that the figures generated from the provided sample data may differ from those presented in the manuscript.
 
 **1. Run all experiment figures at once** 
 - Run the following command in the MATLAB Command Window:
