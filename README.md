@@ -98,7 +98,7 @@ This code is distributed under the MIT License.
 
 ## 6. Open Source Repository
 - **Scripts:** https://github.com/visionplusplu/LuminanceAndBrightness
-- **Data:** https://osf.io/65bwf/ （Full dataset will be uploaded to OSF upon publication)
+- **Data:** https://osf.io/65bwf/ （The full dataset has been uploaded to OSF. To generate the figures in the manuscript, please replace the demo data with the full dataset available on OSF)
 
 
 ## 7. Software Description and Documentation
