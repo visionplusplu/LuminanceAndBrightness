@@ -48,11 +48,10 @@ load('./Results/nonChromaVariationExperiment/LaboratoryTest/AllSub_CatchTrialPas
 PatchRanking = AllSub.PatchRanking_allParticipant_InterPolate; %% 144 patch rankings of all participants
 load('./Results/nonChromaVariationExperiment/LaboratoryTest/WeightFitting.mat');
 OptimalWeights = WeightFitting.meanFit;
-load('./Results/nonChromaVariationExperiment/LaboratoryTest/OledRGB.mat');
-linearRGB = reshape(OledRGB.cube, [], 3);  % a 144x3 matrix based on OLED
-load('./ColorPatchMetric/BrightnessModel_144Patches.mat'); %% Get the values of BrightnessModel
-BrightnessModelComparison(PatchRanking,OptimalWeights,linearRGB,BrightnessModel);
-
+load('./Results/nonChromaVariationExperiment/LaboratoryTest/WeightFitting_LMS.mat');
+OptimalWeights_LMS = WeightFitting_LMS.meanFit;
+load('./Results/nonChromaVariationExperiment/LaboratoryTest/WeightFitting_DKL.mat');
+OptimalWeights_DKL = WeightFitting_DKL.meanFit;
 
 %% Compare the test-retest ranking
 load('./Results/nonChromaVariationExperiment/LaboratoryTest/AllSub_CatchTrialPassed.mat');
@@ -65,9 +64,12 @@ RetestParticipants = cellfun(@str2double,AllSub.Name);
 load('./Results/nonChromaVariationExperiment/LaboratoryTest/OledRGB.mat');
 linearRGB = reshape(OledRGB.cube, [], 3);  % a 144x3 matrix based on OLED
 %%%% Mean Ranking %%%%
-RankingConsistency(TestPatchRanking(TestLoc,:),RetestPatchRanking(RetestLoc,:),'Test', 'Retest', 'Test-Retest', linearRGB,'Mean');
-%%%% Individual Ranking %%%%
-RankingConsistency(TestPatchRanking(TestLoc,:),RetestPatchRanking(RetestLoc,:),'Test', 'Retest', 'Test-Retest', linearRGB,'Individual');
+[TestRetest_UV] = RankingConsistency(TestPatchRanking(TestLoc,:),RetestPatchRanking(RetestLoc,:),'Test', 'Retest', 'Test-Retest', 'Fig. 1C', linearRGB,'Mean');
+%%%% Evaluate Brightness Metric（Using the laboratory test results）%%%%
+load('./ColorPatchMetric/BrightnessModel_144Patches.mat'); %% Get the values of BrightnessModel
+FigIdList = {"Fig. 1H", "Fig. 1J", "Fig. 1I", "fig. S3B","Fig. 1G", "fig. S3I","fig. S3E","fig. S3N","fig. S3P","fig. S3O","fig. S3K","fig. S3J",...
+    "fig. S3M","fig. S3L","Fig. 1E","Fig. 1F","fig. S3H","fig. S3G","fig. S3C","fig. S3F","fig. S3D","Fig. 2C"};
+BrightnessModelComparison(PatchRanking,OptimalWeights,OptimalWeights_LMS,OptimalWeights_DKL,linearRGB,BrightnessModel,TestRetest_UV,FigIdList);
 
 %% Compare the laboratory-home ranking
 load('./Results/nonChromaVariationExperiment/LaboratoryTest/AllSub_CatchTrialPassed.mat');
@@ -80,10 +82,7 @@ HomeParticipants = cellfun(@str2double,AllSub.Name);
 load('./Results/nonChromaVariationExperiment/LaboratoryTest/OledRGB.mat');
 linearRGB = reshape(OledRGB.cube, [], 3);  % a 144x3 matrix based on OLED
 %%%% Mean Ranking %%%%
-RankingConsistency(TestPatchRanking(TestLoc,:),HomePatchRanking(HomeLoc,:),'Test', 'Home', 'Laboratory-Home', linearRGB,'Mean');
-%%%% Individual Ranking %%%%
-RankingConsistency(TestPatchRanking(TestLoc,:),HomePatchRanking(HomeLoc,:),'Test', 'Home', 'Laboratory-Home', linearRGB,'Individual');
-
+[LabHome_UV] = RankingConsistency(TestPatchRanking(TestLoc,:),HomePatchRanking(HomeLoc,:),'Test', 'Home', 'Laboratory-Home', 'Fig. 1D', linearRGB,'Mean');
 
 %% Compare the laboratory-online ranking
 load('./Results/nonChromaVariationExperiment/LaboratoryTest/AllSub_CatchTrialPassed.mat');
@@ -95,4 +94,4 @@ ProlificParticipants = AllSub.Name;
 load('./Results/nonChromaVariationExperiment/LaboratoryTest/OledRGB.mat');
 linearRGB = reshape(OledRGB.cube, [], 3);  % a 144x3 matrix based on OLED
 %%%% Mean Ranking %%%%
-RankingConsistency(TestPatchRanking(TestLoc,:),ProlificPatchRanking,'Test', 'Prolific', 'Laboratory-Online', linearRGB,'Mean');
+[LabOnline_UV] = RankingConsistency(TestPatchRanking(TestLoc,:),ProlificPatchRanking,'Test', 'Online', 'Laboratory-Online', 'fig. S3A', linearRGB,'Mean');

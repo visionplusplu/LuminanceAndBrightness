@@ -34,34 +34,38 @@ load('./Results/ChromaVariationExperiment/LaboratoryTest/AllSub_CatchTrialPassed
 PatchRanking = AllSub.PatchRanking_allParticipant; %% 864 patch rankings of all participants
 load('./Results/ChromaVariationExperiment/LaboratoryTest/WeightFitting.mat');
 OptimalWeights = WeightFitting.meanFit;
+load('./Results/ChromaVariationExperiment/LaboratoryTest/WeightFitting_LMS.mat');
+OptimalWeights_LMS = WeightFitting_LMS.meanFit;
+load('./Results/ChromaVariationExperiment/LaboratoryTest/WeightFitting_DKL.mat');
+OptimalWeights_DKL = WeightFitting_DKL.meanFit;
 load('./Results/ChromaVariationExperiment/LaboratoryTest/OledRGB.mat');
 linearRGB = reshape(OledRGB.cube, [], 3);  % a 864x3 matrix based on OLED
 load('./ColorPatchMetric/BrightnessModel_864Patches.mat'); %% Get the values of BrightnessModel
-BrightnessModelComparison(PatchRanking,OptimalWeights,linearRGB,BrightnessModel);
-
+FigIdList = {"fig. S5A", "fig. S5C", "fig. S5B", "fig. S5D","fig. S5G", "fig. S5N","fig. S5K","fig. S5O","fig. S5T","fig. S5U","fig. S5Q","fig. S5P",...
+    "fig. S5S","fig. S5R","fig. S5E","fig. S5J","fig. S5M","fig. S5L","fig. S5F","fig. S5I","fig. S5H","fig. S6"};
+BrightnessModelComparison(PatchRanking,OptimalWeights,OptimalWeights_LMS,OptimalWeights_DKL,linearRGB,BrightnessModel,[],FigIdList);
 
 %% Compare the laboratory-home ranking
 load('./Results/ChromaVariationExperiment/LaboratoryTest/AllSub_CatchTrialPassed.mat');
-TestPatchRanking = AllSub.PatchRanking_allParticipant; %% 144 patch rankings of all participants
+TestPatchRanking = AllSub.PatchRanking_allParticipant; %% patch rankings of all participants
 TestParticipants = AllSub.Name;
 load('./Results/ChromaVariationExperiment/HomeTest/AllSub_CatchTrialPassed.mat');
-HomePatchRanking = AllSub.PatchRanking_allParticipant; %% 144 patch rankings of all participants
+HomePatchRanking = AllSub.PatchRanking_allParticipant; %% patch rankings of all participants
 HomeParticipants = AllSub.Name;
 [OverlapParticipants,TestLoc,HomeLoc] = intersect(TestParticipants,HomeParticipants);
 load('./Results/ChromaVariationExperiment/LaboratoryTest/OledRGB.mat');
-linearRGB = reshape(OledRGB.cube, [], 3);  % a 144x3 matrix based on OLED
+linearRGB = reshape(OledRGB.cube, [], 3);  % a matrix based on OLED
 %%%% Mean Ranking %%%%
-RankingConsistency(TestPatchRanking(TestLoc,:,:,:),HomePatchRanking(HomeLoc,:,:,:),'Laboratory', 'Home', 'Laboratory-Home', linearRGB,'Mean');
-
+RankingConsistency(TestPatchRanking(TestLoc,:,:,:),HomePatchRanking(HomeLoc,:,:,:),'Laboratory Experiment', 'Home Experiment', '', 'fig. S7A', linearRGB,'Mean');
 
 %% Compare the laboratory-prolific ranking
 load('./Results/ChromaVariationExperiment/ProlificTest/AllSub_CatchTrialPassed.mat');
-ProlificPatchRanking = AllSub.PatchRanking_allParticipant; %% 144 patch rankings of all participants
+ProlificPatchRanking = AllSub.PatchRanking_allParticipant; %% patch rankings of all participants
 ProlificParticipants = AllSub.Name;
 %%%% Mean Ranking %%%%
-RankingConsistency(TestPatchRanking,ProlificPatchRanking,'Laboratory', 'Prolific', 'Laboratory-Prolific', linearRGB,'Mean');
+RankingConsistency(TestPatchRanking,ProlificPatchRanking,'Laboratory Experiment', 'Prolific Experiment', '', 'fig. S7B', linearRGB,'Mean');
 
 %% Compare the home-prolific ranking
 %%%% Mean Ranking %%%%
-RankingConsistency(HomePatchRanking,ProlificPatchRanking,'Home', 'Prolific', 'Home-Prolific', linearRGB,'Mean');
+RankingConsistency(HomePatchRanking,ProlificPatchRanking,'Home Experiment', 'Prolific Experiment', '', 'fig. S7C', linearRGB,'Mean');
 
