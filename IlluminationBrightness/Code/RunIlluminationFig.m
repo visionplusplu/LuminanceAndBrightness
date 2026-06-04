@@ -112,7 +112,7 @@ end
 
 
 %% Plot Conflicting Pairs Choice
-DimName = {'Radiance','Max-weighted','Melanopsin','Sum-weighted RGB','SumRGB','MaxRGB'};
+DimName = {'Radiance','wMaxRGB','Melanopsin','Weighted sumRGB','SumRGB','MaxRGB'};
 for subject = 1:size(LightingData.linearRGB,1)
     luminanceDiff = squeeze(LightingData.luminance(subject,:,1)-LightingData.luminance(subject,:,2));
     radianceDiff = squeeze(LightingData.radiance(subject,:,1)-LightingData.radiance(subject,:,2));
@@ -144,13 +144,21 @@ for subject = 1:size(LightingData.linearRGB,1)
         ChoosingLuminance = [intersect(ChoosingLeft,luminanceHigherLeft), intersect(ChoosingRight,luminanceHigherRight)];
         ChoosingLuminance_conflictingTrial(nPair,subject) = length(intersect(ChoosingLuminance,TargetTrial))/length(TargetTrial);
     end
+    AllCompare = radianceDiff.*mwDiff;
+    TargetTrial = find(AllCompare<0);
+    ChoosingLeft = find(LightingData.choice(subject,:)==1);
+    RadianceHigherLeft = find(radianceDiff>0);
+    ChoosingRight = find(LightingData.choice(subject,:)==-1);
+    RadianceHigherRight = find(radianceDiff<0);
+    ChoosingRadiance = [intersect(ChoosingLeft,RadianceHigherLeft), intersect(ChoosingRight,RadianceHigherRight)];
+    ChoosingRadiance_conflictingTrial(subject) = length(intersect(ChoosingRadiance,TargetTrial))/length(TargetTrial);
 end
 
 
-
-figure(100);
+%% plot Luminance versus others
+FigIdList = {"Fig. 4D","Fig. 4E","Fig. 4F","fig. S9C","fig. S9D","fig. S9E"};
 for nPair = 1:6
-    subplot(2,3,nPair);
+    figure("Name",FigIdList{1,nPair},'NumberTitle','off');
     ConflicChoice = 100-squeeze(ChoosingLuminance_conflictingTrial(nPair,:)*100);
     plot(1:size(LightingData.linearRGB,1),ConflicChoice,'o','MarkerSize',10,'LineWidth',1.5,'MarkerEdgeColor',[0 0.4470 0.7410],'MarkerFaceColor',[0 0.4470 0.7410]);
     Loc = find(ConflicChoice>50);
@@ -161,22 +169,53 @@ for nPair = 1:6
     xlim([0,size(LightingData.linearRGB,1)+1])
     line([0,size(LightingData.linearRGB,1)+1],[50,50],'Color','k','LineStyle','--','LineWidth',1.5)
     if LuminanceChoice > 50
-        lgd = legend({['Luminance wins for ',num2str(LuminanceChoice),'% observers'],[DimName{1,nPair}, ' wins']},'Box','off', 'Location','northoutside','FontSize',14)
+        lgd = legend({['Luminance wins for ',num2str(LuminanceChoice),'% observers'],[DimName{1,nPair}, ' wins']},'Box','off', 'Location','northoutside','FontSize',14);
     else
-        lgd = legend({['Luminance wins'],[DimName{1,nPair}, ' wins for ', num2str(100-LuminanceChoice),'% observers']},'Box','off', 'Location','northoutside','FontSize',14)
+        lgd = legend({['Luminance wins'],[DimName{1,nPair}, ' wins for ', num2str(100-LuminanceChoice),'% observers']},'Box','off', 'Location','northoutside','FontSize',14);
     end
     lgd.NumColumns = 1;
     xlabel('Observers','FontSize',20, 'FontWeight', 'bold')
     xticks([]);
     xticklabels([])
+    ylabel({'Trials choosing','non-luminance (%)',''}, 'FontSize', 16, 'FontWeight', 'bold');
+
     box off
     set(gca,'FontSize',12)
     set(gca,'LineWidth',1.5)
+    set(gcf,'Position',[0,0,600,300])
 
 end
 
+
+
+
+%% plot Radiance versus Max-weighted
+figure("Name","fig. S9F",'NumberTitle','off')
+ConflicChoice = 100-squeeze(ChoosingRadiance_conflictingTrial*100);
+plot(1:size(LightingData.linearRGB,1),ConflicChoice,'o','MarkerSize',10,'LineWidth',1.5,'MarkerEdgeColor',[0 0.4470 0.7410],'MarkerFaceColor',[0 0.4470 0.7410]);
+Loc = find(ConflicChoice>50);
+RadianceChoice = 100-round(length(Loc)/size(LightingData.linearRGB,1)*100);
+hold on
+plot(Loc,ConflicChoice(Loc),'o','MarkerSize',10,'LineWidth',1.5,'MarkerEdgeColor',[0.9290 0.6940 0.1250],'MarkerFaceColor',[0.9290 0.6940 0.1250]);
+ylim([0,100]);
+xlim([0,size(LightingData.linearRGB,1)+1])
+line([0,size(LightingData.linearRGB,1)+1],[50,50],'Color','k','LineStyle','--','LineWidth',1.5)
+if RadianceChoice > 50
+    lgd = legend({['Radiance wins for ',num2str(RadianceChoice),'% observers'],['wMaxRGB wins']},'Box','off', 'Location','northoutside','FontSize',14);
+else
+    lgd = legend({['Radiance wins'],['wMaxRGB wins for ', num2str(100-RadianceChoice),'% observers']},'Box','off', 'Location','northoutside','FontSize',14);
+end
+lgd.NumColumns = 1;
+xlabel('Observers','FontSize',20, 'FontWeight', 'bold')
+xticks([]);
+xticklabels([])
+box off
+set(gca,'FontSize',12)
+set(gca,'LineWidth',1.5)
+
 % Add a single ylabel in the middle of the figure
-han = axes(figure(100), 'Visible', 'off');
-han.YLabel.Visible = 'on';
-ylabel(han, {'Trials choosing','non-luminance (%)',''}, 'FontSize', 16, 'FontWeight', 'bold');
-set(gcf,'Position',[0,0,1800,300])
+% han = axes(figure(100), 'Visible', 'off');
+% han.YLabel.Visible = 'on';
+ylabel({'Trials choosing wMaxRGB (%)',''}, 'FontSize', 16, 'FontWeight', 'bold');
+set(gcf,'Position',[0,0,600,300])
+
