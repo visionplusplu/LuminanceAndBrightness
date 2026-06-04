@@ -83,7 +83,7 @@ MATLAB data files containing key results.
 - **Setup time:** Under 1 minute (copy/unzip files and configure the MATLAB path).
 - **Data download:** The dataset repository is around 10 MB. Actual download time depends on internet speed.
 - **Estimated run time:** Approximately 1 hour on a typical machine using the demo dataset, with most of the time spent on the weight-fitting stage.
-  Running the full dataset may take more than 10 hours due to the large number of samples and the multiple weight-fitting procedures involved.
+  Running the full dataset analysis may take more than 10 hours due to the large number of samples and the multiple weight-fitting procedures involved.
 - **After fitting:** Once fitting is completed, the fitted weights are saved, and subsequent runs (e.g., when regenerating figures) will no longer repeat this step.
 
 ## 4. Instruction of Use
