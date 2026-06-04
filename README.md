@@ -1,6 +1,6 @@
 # Luminance And Brightness
-This repository contains scripts for processing behavioral, EEG, and DNN data, as well as for generating the main and supplementary figures for the manuscript Behavioral and Neural Evidence for Revising Luminous Intensity Standards.  
-A small batch of sample data is also included for testing purposes. As a result, the figures generated from this repository may not exactly match those in the manuscript. The full dataset will be made publicly available upon publication of the manuscript.
+This repository contains scripts for processing behavioral, EEG data, as well as for generating the main and supplementary figures for the manuscript Perceptual and neural constraints on photometric measures of heterochromatic brightness.  
+A small batch of sample data is also included for testing purposes. As a result, the figures generated from this repository may not exactly match those in the manuscript. The full dataset has been made publicly available here: https://osf.io/65bwf/
 
 ## 1. System Requirements
 - **Operating System:** Windows, macOS, or Ubuntu (tested on Windows 10 or later, macOS Tahoe 26.1)
