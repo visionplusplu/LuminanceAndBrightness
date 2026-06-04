@@ -76,7 +76,7 @@ DatasetLabel{count,1} = 'Radiance';
 
 count = count+1;
 weights(count,:) = [1,1,1];
-DatasetLabel{count,1} = 'Equipollent';
+DatasetLabel{count,1} = 'MaxRGB';
 
 
 
@@ -93,8 +93,8 @@ dot_colors = [
     1, 1, 0;         
     0.6, 0.3, 0.1;   
     0.6, 0.6, 1.00;  
-    0, 0, 0;         
-    0.5, 0.5, 0.5;   
+    0.7176, 0.7176, 0.1215;         
+    0.3725, 0.6353, 1;   
     1,0.7,1];   
 
 
@@ -113,7 +113,7 @@ y_dot = wB * triangle_y(1) + wR * triangle_y(2) + wG * triangle_y(3);
 
 
 
-figure;
+figure("Name","fig. S10",'NumberTitle','off');
 hold on;
 
 % Plot the dots inside the triangle
@@ -121,6 +121,7 @@ hold on;
 for i = 1:length(DatasetLabel)-3
     scatter_handle(i) = scatter(x_dot(i), y_dot(i), 240, dot_colors(i, :), 'filled', 'MarkerEdgeColor', 'k', 'LineWidth', 1);
 end
+legend([scatter_handle], DatasetLabel)  % choose which handles to include
 
 
 axis equal;
@@ -132,18 +133,16 @@ yticklabels([]);
 
 
 %% Luminance
-lum_handle = plot(x_dot(length(DatasetLabel)-2),y_dot(length(DatasetLabel)-2),'v', 'MarkerFaceColor', 'g','MarkerEdgeColor', 'g','MarkerSize',16,'LineWidth',0.5)
+lum_handle = plot(x_dot(length(DatasetLabel)-2),y_dot(length(DatasetLabel)-2),'v', 'MarkerFaceColor', 'k','MarkerEdgeColor', 'k','MarkerSize',16,'LineWidth',0.5);
 
 %% Radiance
-rad_handle = plot(x_dot(length(DatasetLabel)-1),y_dot(length(DatasetLabel)-1),'v', 'MarkerFaceColor', 'b','MarkerEdgeColor', 'b','MarkerSize',16,'LineWidth',0.5);
+rad_handle = plot(x_dot(length(DatasetLabel)-1),y_dot(length(DatasetLabel)-1),'v', 'MarkerFaceColor',[0.5,0.5,0.5] ,'MarkerEdgeColor', [0.5,0.5,0.5],'MarkerSize',16,'LineWidth',0.5);
 
 %% Equipollent
-eqp_handle = plot(x_dot(length(DatasetLabel)),y_dot(length(DatasetLabel)),'s', 'MarkerFaceColor', 'none','MarkerEdgeColor', 'k','MarkerSize',16,'LineWidth',2)
+eqp_handle = plot(x_dot(length(DatasetLabel)),y_dot(length(DatasetLabel)),'s', 'MarkerFaceColor', 'none','MarkerEdgeColor', 'k','MarkerSize',16,'LineWidth',2);
 
 %% Add Legend
 legend([scatter_handle lum_handle rad_handle eqp_handle], DatasetLabel)  % choose which handles to include
-
-% legend(DatasetLabel, 'Location', 'EastOutside', 'FontSize', 12);
 
 % Calculate distances to the three sides
 d_bottom = abs(y_dot);  % Distance to the bottom side y = 0
@@ -151,14 +150,14 @@ d_left = abs(sqrt(3) * x_dot - y_dot) / 2;
 d_right = abs(sqrt(3) * x_dot + y_dot - sqrt(3)) / 2;  
 
 % Draw the main white equilateral triangle
-plot(triangle_x, triangle_y, 'k-', 'LineWidth', 2);
+plot(triangle_x, triangle_y, 'k-', 'LineWidth', 2,'HandleVisibility','off');
 
 % Draw small Red, Green, and Blue triangles at the corners
 % Blue triangle (bottom-left)
-fill([0, 0.05, 0.025], [0, 0, 0.025 * sqrt(3)], 'b', 'EdgeColor', 'k', 'LineWidth', 2); 
+fill([0, 0.05, 0.025], [0, 0, 0.025 * sqrt(3)], 'b', 'EdgeColor', 'k', 'LineWidth', 2,'HandleVisibility','off'); 
 % Red triangle (bottom-right)
-fill([1, 0.95, 0.975], [0, 0, 0.025 * sqrt(3)], 'r', 'EdgeColor', 'k', 'LineWidth', 2); 
+fill([1, 0.95, 0.975], [0, 0, 0.025 * sqrt(3)], 'r', 'EdgeColor', 'k', 'LineWidth', 2,'HandleVisibility','off'); 
 % Green triangle (top)
-fill([0.5, 0.475, 0.525], [sqrt(3)/2, 0.95*sqrt(3)/2, 0.95*sqrt(3)/2], 'g', 'EdgeColor', 'k', 'LineWidth', 2);
+fill([0.5, 0.475, 0.525], [sqrt(3)/2, 0.95*sqrt(3)/2, 0.95*sqrt(3)/2], 'g', 'EdgeColor', 'k', 'LineWidth', 2,'HandleVisibility','off');
 set(gcf,'Position',[0,0,1600,1600])
 
